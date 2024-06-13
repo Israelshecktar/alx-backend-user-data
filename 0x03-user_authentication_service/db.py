@@ -18,6 +18,8 @@ class DB:
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         self.__session = None
+        # Get the attributes from the User model
+        self.DATA = self.get_user_attributes()
 
     @property
     def _session(self) -> Session:
